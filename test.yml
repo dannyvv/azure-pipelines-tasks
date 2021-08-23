@@ -41,7 +41,7 @@ jobs:
 
       - powershell: |
           $env:System_Culture = "en-US"
-          Import-Module .\_build\Tasks\PublishSymbolsV2\ps_modules\VstsTaskSdk\VstsTaskSdk.psm1 -ModuleParameters @{NonInteractive = true} 
+          Import-Module -Name .\_build\Tasks\PublishSymbolsV2\ps_modules\VstsTaskSdk\VstsTaskSdk.psm1 -Verbose -ArgumentList ("-ModuleParameters", @{NonInteractive = true} )
           $env:Agent_HomeDirectory = "D:\Downloads\vsts-agent-win7-x64-2.117.1"
           $env:PublishSymbolsV2_Debug = "true"
           $env:PublishSymbolsV2_UseDbgLkg = "true"
