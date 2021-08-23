@@ -31,13 +31,13 @@ jobs:
 
       - script: node make.js build --task PublishSymbolsV2
 
-      - script: dir /s/b
+      # - script: dir /s/b
 
-      - task: PublishPipelineArtifact@1
-        displayName: "Publish artifacts"
-        inputs:
-          targetPath: _build\Tasks\PublishSymbolsV2
-          artifactName: "PublishSymbolV2"
+      # - task: PublishPipelineArtifact@1
+      #   displayName: "Publish artifacts"
+      #   inputs:
+      #     targetPath: _build\Tasks\PublishSymbolsV2
+      #     artifactName: "PublishSymbolV2"
 
       - powershell: |
           $env:System_Culture = "en-US"
