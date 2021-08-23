@@ -13,6 +13,7 @@ jobs:
       - checkout: self
         clean: true
         submodules: false
+        
       - task: NodeTool@0
         displayName: Use node 8
         inputs:
@@ -20,9 +21,13 @@ jobs:
 
       - script: npm i -g npm@6.9.0 --force
         displayName: Use npm version 6.9.0
+
       - script: npm install
+
       - script: node make.js build --task PublishSymbolsV2
+
       - script: dir /s/b
+
       - powershell: |
           $env:System_Culture = "en-US"
           Import-Module .\_build\Tasks\PublishSymbolsV2\ps_modules\VstsTaskSdk\VstsTaskSdk.psd1
