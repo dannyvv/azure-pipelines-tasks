@@ -14,8 +14,11 @@ jobs:
         clean: true
         submodules: false
       - task: NodeTool@0
-        displayName: Installing Node
+        displayName: Use node 8
         inputs:
-          versionSpec: '14.x'
+          versionSpec: "8.x"
+
+      - script: npm i -g npm@6.9.0 --force
+        displayName: Use npm version 6.9.0
       - script: npm install
-      - script: npm build
+      - script: node make.js build --task ShellScript
