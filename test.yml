@@ -23,3 +23,10 @@ jobs:
       - script: npm install
       - script: node make.js build --task PublishSymbolsV2
       - script: dir /s/b
+      - powershell: |
+          $env:System_Culture = "en-US"
+          Import-Module .\_build\Tasks\PublishSymbolsV2\ps_modules\VstsTaskSdk\VstsTaskSdk.psd1
+          $env:Agent_HomeDirectory = "D:\Downloads\vsts-agent-win7-x64-2.117.1"
+          $env:PublishSymbolsV2_Debug = "true"
+          $env:PublishSymbolsV2_UseDbgLkg = "true"
+          .\_build\Tasks\PublishSymbolsV2\PublishSymbols.ps1
