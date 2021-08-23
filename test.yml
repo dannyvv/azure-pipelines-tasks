@@ -49,4 +49,4 @@ jobs:
           $env:INPUT_symbolServerType = "TeamServices"
           $env:INPUT_SearchPattern = "testData/**"
           Write-Verbose "GOT HERE"
-          Invoke-VstsTaskScript -ScriptBlock { . .\_build\Tasks\PublishSymbolsV2\PublishSymbols.ps1 }
+          global:Invoke-VstsTaskScript -ScriptBlock { . .\_build\Tasks\PublishSymbolsV2\PublishSymbols.ps1 }
