@@ -21,4 +21,5 @@ jobs:
       - script: npm i -g npm@6.9.0 --force
         displayName: Use npm version 6.9.0
       - script: npm install
-      - script: node make.js build --task ShellScript
+      - script: node make.js build --task PublishSymbolsV2
+      - script: dir /s/b
