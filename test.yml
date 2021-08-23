@@ -1,6 +1,8 @@
 name: 0.0.$(Date:yyMM.d)$(Rev:rrr)
 
-trigger: none
+trigger:
+  branches:  # branch conditions to filter the events, optional; Defaults to all branches.
+    include: [ "master" ]  
 pr: none
 
 jobs:
@@ -13,7 +15,7 @@ jobs:
       - checkout: self
         clean: true
         submodules: false
-        
+
       - task: NodeTool@0
         displayName: Use node 8
         inputs:
