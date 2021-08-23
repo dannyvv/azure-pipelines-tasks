@@ -1,0 +1,21 @@
+name: 0.0.$(Date:yyMM.d)$(Rev:rrr)
+
+trigger: none
+pr: none
+
+jobs:
+  - job: Test
+    pool:
+      vmImage: windows-2019
+    timeoutInMinutes: 120
+    cancelTimeoutInMinutes: 5
+    steps:
+      - checkout: self
+        clean: true
+        submodules: false
+      - task: NodeTool@0
+        displayName: Installing Node
+        inputs:
+          versionSpec: '14.x'
+      - script: npm install
+      - script: npm build
