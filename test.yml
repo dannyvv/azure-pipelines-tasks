@@ -43,6 +43,7 @@ jobs:
           $env:System_Culture = "en-US"
           $Arguments = @()
           $Arguments += "-ModuleParameters @{'NonInteractive' = 'true'}"
+          Import-Module -Name Tests\lib\Initialize-Test.ps1 -Verbose
           Import-Module -Name .\_build\Tasks\PublishSymbolsV2\ps_modules\VstsTaskSdk\VstsTaskSdk.psm1 -Verbose -ArgumentList @{'NonInteractive' = 'true'}
           $env:Agent_HomeDirectory = "D:\Downloads\vsts-agent-win7-x64-2.117.1"
           $env:PublishSymbolsV2_Debug = "true"
