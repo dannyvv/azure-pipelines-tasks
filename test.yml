@@ -1,5 +1,8 @@
 name: 0.0.$(Date:yyMM.d)$(Rev:rrr)
 
+variables:
+  System.Debug: true
+
 trigger:
   branches:  # branch conditions to filter the events, optional; Defaults to all branches.
     include: [ "master" ]  
